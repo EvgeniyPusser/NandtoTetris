@@ -1,7 +1,3 @@
-//Not gate
-//out = not in
-
-
 CHIP Not(in=, out=);{
     IN in;
     OUT out;
@@ -9,3 +5,30 @@ CHIP Not(in=, out=);{
     Parts:Nand(a=n, b=in, out=out);
 
 }
+
+CHIP Or{
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    Not(in=a, out=NotAOut);
+    Not(in=b, out=NotBOut);
+    Nand(a=NotAOut, b=NotAOut, out=out);
+}
+
+CHIP Xor{
+    IN a, b;
+    OUT out;
+
+
+    PARTS:
+    And(a=a, b=b, out=andOut);
+    Or(a=a, b=b, out=or1Out);
+    Not(in=or1Out, out=)not1Out;
+    Or(a=andOut, b=not1Out, out=or2Out);
+    Not(in=or2Out, out=out);
+
+}
+
+
+
