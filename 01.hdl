@@ -1,0 +1,11 @@
+//Not gate
+//out = not in
+
+
+CHIP Not(in=, out=);{
+    IN in;
+    OUT out;
+
+    Parts:Nand(a=n, b=in, out=out);
+
+}
