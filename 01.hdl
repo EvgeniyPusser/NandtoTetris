@@ -30,5 +30,18 @@ CHIP Xor{
 
 }
 
+CHIP Mux{
+    IN a, b, sel;
+    OUT out;
+
+
+    PARTS:
+    Not(in=sel, out=notSel);
+    And(a=a, b=notsel, out=and1Out);
+    And(a=b, b=Sel, out=and2Out);
+    Or(a=and1Out, b=and2Out, out=);
+}
+
+
 
 
